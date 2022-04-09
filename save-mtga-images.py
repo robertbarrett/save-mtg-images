@@ -13,7 +13,7 @@ def writefile(url, file_path): #checks if the file already exists. If not it dow
         r = requests.get(url)
         open(file_path, 'wb').write(r.content)
  
-def getallcardsdata(): #downloads the current all-files.json file from scryfall. Just reads to memory, doesn't save it to a file.
+def getallcardsdata(): #downloads the current all-cards.json file from scryfall. Just reads to memory, doesn't save it to a file.
                        #this part takes a while. If you're running the script and don't see any files being written for a bit, wait longer.
     request_url = requests.get('https://api.scryfall.com/bulk-data')
     request_data = requests.get(request_url.json()['data'][3]['download_uri'])
