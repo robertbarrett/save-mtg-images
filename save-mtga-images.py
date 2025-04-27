@@ -22,11 +22,11 @@ def getAllCardsData(): #downloads the current all-cards.json file to memory, doe
     print("Card Data JSON processing finished at: " + str(datetime.datetime.now()))
     return request_data.json()
 
-def getWantedSetData(passedSteTypes):
+def getWantedSetData(passedSetTypes):
     request = requests.get('https://api.scryfall.com/sets/')
     wantedSets={}
     for set in request.json()['data']:
-        if set['set_type'] in passedSteTypes:
+        if set['set_type'] in passedSetTypes:
             if 'printed_size' in set.keys():
                 count=set['printed_size']
             else:
